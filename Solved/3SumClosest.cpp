@@ -3,7 +3,7 @@
 //  
 //
 //  Created by 于 卓然 on 12-11-14.
-//
+//  100 milli secs on large data set
 //
 
 #include <stdio.h>
