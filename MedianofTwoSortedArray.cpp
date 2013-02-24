@@ -15,22 +15,15 @@ using namespace std;
 
 const int maxn = 100;
 
-double findMedianSortedArrays(int A[], int m, int B[], int n) {
-    int l1 = 0, r1 = m-1, p1, t1;
-    while(l1 <= r1) {
-        p1 = (l1 + r1) / 2;
-        
-        int l2 = 0, r2 = n-1, p2, t2 = p1;
-        while(l2 <= r2) {
-            if()
-        }
-        
-        if(!t1) {
-            return
-        } else if(t1 > 0) {
-            l1 = p1 + 1;
-        } else {
-            r1 = p1 - 1;
-        }
+double findMedian(int A[], int B[], int l, int r, int nA, int nB) {
+    if (l > r) return findMedian(B, A, max(0, (nA+nB)/2-nA), min(nB, (nA+nB)/2), nB, nA);
+    int i = (l+r)/2;
+    int j = (nA+nB)/2 – i – 1;
+    if (j ≥ 0 && A[i] < B[j]) return findMedian(A, B, i+1, r, nA, nB);
+    else if (j < nB-1 && A[i] > B[j+1]) return findMedian(A, B, l, i-1, nA, nB);
+    else {
+        if ( (nA+nB)%2 == 1 ) return A[i];
+        else if (i > 0) return (A[i]+max(B[j], A[i-1]))/2.0;
+        else return (A[i]+B[j])/2.0;
     }
 }
